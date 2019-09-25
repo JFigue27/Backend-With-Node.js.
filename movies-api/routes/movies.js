@@ -34,9 +34,13 @@ const moviesApi = app => {
     }
   });
   router.post('/', async (req, res, next) => {
-    const { boby: movie } = req;
+    const { body: movie } = req;
     try {
+      console.log(`Movie ${JSON.stringify(movie, null, 3)}`);
+
       const createMovieId = await moviesServices.createMovie({ movie });
+      console.log(`Create ID ${createMovieId}`);
+
       res.status(201).json({
         data: createMovieId,
         message: 'movie created'

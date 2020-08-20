@@ -1,4 +1,4 @@
-const asyncCallback = function(cb) {
+const asyncCallback = function (cb) {
   setTimeout(() => {
     if (Math.random() < 0.5) {
       return cb(null, 'Hellow World!');

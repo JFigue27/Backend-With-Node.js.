@@ -26,21 +26,22 @@ class MoviesService {
   }
   async updateMovie({ movieId, movie } = {}) {
     // const updatedMovie = await Promise.resolve(moviesMock[0].id);
-    const updatedMovieId = await this.mongoDB.update(
+    const updatedMovie = await this.mongoDB.update(
       this.collection,
       movieId,
       movie
     );
-    return updatedMovieId;
+    return updatedMovie;
   }
   // async patchMovie() {
   //   const pathedMovie = await Promise.resolve(moviesMock[0].id);
   //   return pathedMovie;
   // }
-  // async deleteMovie() {
-  //   const deletedMovie = await Promise.resolve(moviesMock[0].id);
-  //   return deletedMovie;
-  // }
+  async deleteMovie({ movieId }) {
+    // const deletedMovie = await Promise.resolve(moviesMock[0].id);
+    const deletedMovieId = await this.mongoDB.delete(this.collection, movieId);
+    return deletedMovieId;
+  }
 }
 
 module.exports = MoviesService;

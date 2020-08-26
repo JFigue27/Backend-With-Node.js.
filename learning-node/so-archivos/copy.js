@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-fs.copyFile('log', 'logs.txt', err => {
+fs.copyFile('log', 'logssss.txt', (err) => {
   if (err) {
     return console.log(err);
   }
